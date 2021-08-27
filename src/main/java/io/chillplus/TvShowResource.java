@@ -56,6 +56,13 @@ public class TvShowResource {
     }
 
     @DELETE
+    @Path("{id}")
+    public Response deleteOne(@PathParam("id") Long id) {
+        shows.remove(id);
+        return Response.ok().build();
+    }
+
+    @DELETE
     public Response deleteAll() {
         shows.clear();
         return Response.ok().build();
